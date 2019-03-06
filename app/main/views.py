@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for
 from . import main
-from ..requests import get_photos
+from ..requests import get_photos,process_results
 
 # Views
 @main.route('/')
@@ -11,7 +11,7 @@ def index():
     '''
     #getting photos
     photos = get_photos()
-    print('photos')
+    # print('photos')
     
     return render_template('index.html',photos = photos)
 

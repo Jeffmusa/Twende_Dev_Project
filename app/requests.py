@@ -30,6 +30,7 @@ def get_photos():
 
         if get_photos_response['photos']:
             photos_results_list = get_photos_response['photos']
+            # print (photos_results_list)
             photos_results = process_results(photos_results_list)
 
 
@@ -49,10 +50,12 @@ def process_results(photos_list):
     '''
     photos_results = []
     for photo_item in photos_list:
-        photo = photo_item.get('id')
+        date = photo_item.get('earth_date')
+        img_src = photo_item.get('img_src')
       
         
-        photos_object = Rover(photo,name,date)
+        photos_object = Rover(date,img_src)
         photos_results.append(photos_object)
+        print (photos_results)
         
     return photos_results    
