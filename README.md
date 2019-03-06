@@ -2,7 +2,7 @@
 This web app uses [NASA API](https://api.nasa.gov/) to display the epic photos taken by the CuriosityMars Rover.
 
 ## Getting started
-1.Clone this repo;
+1.Clone this repo by typing this command on your terminal;
 `git clone https://github.com/Jeffmusa/Twende_Dev_Project.git`
 
 2.Create a virtual environment and activate it.
