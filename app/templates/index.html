@@ -2,7 +2,12 @@
 <html>
 
 <head>
-    <meta charset="utf-8"> {% if title %}
+    <meta charset="utf-8">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script> {% if title
+    %}
     <title> {{ title }}</title>
     {% else %}
     <title> Welcome to the Space </title>
@@ -12,16 +17,38 @@
 
 <body>
     {% block content %}
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h2 class="text-center"><b> Epic photos taken by the CuriosityMars Rover </b></h2>
+        </div>
+        <h3 class="text-center">Mars Images taken from 2016-05-10.</h3>
+        <div class="row">
+            {% for pic in t %}
+            <div class="col-md-3">
 
-    <div class="jumbotron">
-      <h1 class="text-center">Tour the space</h1>
+
+                <div class="card border-secondary">
+                    <div class="card-body" style="background-color:#e9f0f5;">
+                        <div class="card-title">
+                            <div class="text-center">
+                                <p>This image was taken on: <b> {{pic.earth_date}}</b></p>
+                            </div>
+                        </div>
+                        <div class="text-center">
+
+                            <a data-fancybox="gallery" href="big_1.jpg"><img src="{{pic.img_src}}" style="height:50%; width:100%;"
+                                /></a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            {% endfor %}
+        </div>
+
     </div>
-    <ul>
-        {% for photo in photos_list %}
-        <h1>{{photo.id}}</h1>
-       
-           {% endfor %}
-    </ul>
     {% endblock%}
 </body>
 
